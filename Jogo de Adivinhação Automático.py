@@ -59,3 +59,34 @@ posicao = busca_binaria(vetor,0,len(vetor)-1)
 #  while contador != "" :
         
 #     contador = (contador+1)
+
+
+"""""# *Documentação - Jogo de Adivinhação Automático*  
+
+## *Descrição do Jogo*  
+Neste jogo, o computador tentará adivinhar o número que o jogador escolheu. Ele usará uma estratégia chamada *busca binária*, que permite encontrar o número rapidamente reduzindo a faixa de possibilidades a cada tentativa.  
+## *Regras do Jogo*  
+1. O jogador escolhe um número secreto dentro de um intervalo (ex: *1 a 100*).  
+2. O computador fará um palpite no meio do intervalo.  
+3. O jogador responde se o número é *maior, menor ou se acertou*.  
+4. O computador ajusta seu palpite com base na resposta.  
+5. O jogo continua até o computador acertar o número.  
+
+## *Funcionamento da Lógica*  
+- O computador começa chutando o valor médio do intervalo.  
+- Se o palpite for *menor*, o computador ajusta o intervalo para números maiores.  
+- Se for *maior*, ele ajusta o intervalo para números menores.  
+- Esse processo continua até o palpite ser igual ao número escolhido.  
+## *Exemplo de Fluxo do Jogo*  
+1. O jogador pensa no número *68* (sem dizer ao computador).  
+2. O computador chuta *50*.  
+   - O jogador diz: "Maior".  
+3. O computador ajusta e chuta *75*.  
+   - O jogador diz: "Menor".  
+4. O computador chuta *62*.  
+   - O jogador diz: "Maior".  
+5. O computador chuta *68*.  
+   - O jogador diz: "Acertou!".  
+
+O jogo finaliza, e o computador informa quantas tentativas foram necessárias.
+"""
