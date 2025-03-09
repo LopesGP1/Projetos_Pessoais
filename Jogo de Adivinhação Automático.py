@@ -1,43 +1,34 @@
 import os 
 import time 
 
-time.sleep(0.5)
-print ("===== Jogo de Adivinhação Automático ===== ")
-time.sleep(0.5)
-print ("Explicação do jogo : ")
-time.sleep(0.5)
-print ("A única regra e que voce tem que escolher um numero 1 entre 100!!!") 
-time.sleep(0.5)
-print ("O próprio sistema vai estar adivinhando qual número você chutou.")
-time.sleep(0.5)
-print ("LEMBREÇE NÃO PODE ALTERAR O NUMERO DEPOIS QUE O SISTEMA COMEÇOU A ADIVINHAR !!!")
-time.sleep(1.5)
-
-comecar = input ("Pronto para começar ? s/n ")
-print ("escolha um número de 1 a 100 :  ")
-
-
-
 # maior
 # menor
 #acertou
 
 
-def busca_binaria (vetor,inici,fim):  
+def busca_binaria (vetor,inici,fim,tentativas = 1):  
    
 
     def busca_maior():
-        return busca_binaria (vetor,m+1,fim)
+        return busca_binaria (vetor,m+1,fim,tentativas + 1)
     def busca_menor():
-        return busca_binaria (vetor,inici,m-1)
+        return busca_binaria (vetor,inici,m-1,tentativas + 1)
     def acerto():
-        print(f"Encontrei! O número é {vetor[respt_user]}")
-        return respt_user 
+        time.sleep(0.5)
+        print(".", end="")
+        time.sleep(0.5)
+        print(".", end="")
+        time.sleep(0.5)
+        print(".")
+        time.sleep(0.9)
+        print(f"Acertei em {tentativas} tentativas!")  # Exibe as tentativas
+        return tentativas
         
     
     
     m = int ((inici+fim) // 2 )#indice do meio do vetor
-    respt_user = input (f"Meu palpite e esse {m}") 
+    respt_user = input (f"Meu palpite e esse {m}: ").lower()
+    
     if   respt_user == "maior":
         busca_maior()   
     elif respt_user== "menor":
@@ -48,8 +39,40 @@ def busca_binaria (vetor,inici,fim):
          
 
 
-vetor =list (range(0,101)) 
-posicao = busca_binaria(vetor,0,len(vetor)-1) 
+
+
+
+
+
+
+# O sistema vai começar aqui 
+
+time.sleep(0.5)
+print ("===== Jogo de Adivinhação Automático ===== ")
+time.sleep(0.5)
+print ("Explicação do jogo : ")
+time.sleep(0.5)
+print ("A única regra é que você tem que escolher um número entre 1 e 100!!!") 
+time.sleep(0.5)
+print ("O próprio sistema vai estar adivinhando qual número você escolheu.")
+time.sleep(0.5)
+print(f"Depois que o sistema der o palpite, digite uma destas três opções: 'maior', 'menor' ou 'acertou'")
+time.sleep(0.5)
+print ("LEMBRE-SE: NÃO PODE ALTERAR O NÚMERO DEPOIS QUE O SISTEMA COMEÇOU A ADIVINHAR!!!")
+time.sleep(1.5)
+
+
+while True:
+    comecar = input("Pronto para começar? (s/n): ")
+    os.system('cls')
+    if comecar.lower() == 's':
+        print("Escolha um número de 1 a 100 e não diga para o computador!")
+        time.sleep(1)
+        vetor =list (range(0,101)) 
+        posicao = busca_binaria(vetor,1,len(vetor)-1) 
+    else:
+        print("Tudo bem, jogamos outra hora!")
+        break
 
 
 # Exibir o resultado
