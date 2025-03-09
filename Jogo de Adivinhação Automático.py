@@ -6,9 +6,10 @@ import time
 #acertou
 
 
+# A função vai estar fazendo a busaca binária 
 def busca_binaria (vetor,inici,fim,tentativas = 1):  
    
-
+    #Criei funções internas para estar funcionando melhor caso eu for passar para um arquivo app e melhor passar as funçoes para externas para o fluxo ser melhor
     def busca_maior():
         return busca_binaria (vetor,m+1,fim,tentativas + 1)
     def busca_menor():
@@ -36,13 +37,6 @@ def busca_binaria (vetor,inici,fim,tentativas = 1):
     elif respt_user== "acertou":
         acerto()
         
-         
-
-
-
-
-
-
 
 
 # O sistema vai começar aqui 
@@ -60,7 +54,6 @@ print(f"Depois que o sistema der o palpite, digite uma destas três opções: 'm
 time.sleep(0.5)
 print ("LEMBRE-SE: NÃO PODE ALTERAR O NÚMERO DEPOIS QUE O SISTEMA COMEÇOU A ADIVINHAR!!!")
 time.sleep(1.5)
-
 
 while True:
     comecar = input("Pronto para começar? (s/n): ")
