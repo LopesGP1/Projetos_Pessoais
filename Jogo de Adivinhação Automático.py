@@ -14,31 +14,48 @@ print ("LEMBREÇE NÃO PODE ALTERAR O NUMERO DEPOIS QUE O SISTEMA COMEÇOU A ADI
 time.sleep(1.5)
 
 comecar = input ("Pronto para começar ? s/n ")
-x = int (input("Digite o número que você escolheu "))
+print ("escolha um número de 1 a 100 :  ")
 
 
 
+# maior
+# menor
+#acertou
 
-def busca_binaria (vetor,inici,fim,x):
+
+def busca_binaria (vetor,inici,fim):  
    
-    while inici<= fim:
-        m = int ((inici+fim) // 2 )#indice do meio do vetor
-        if x > vetor[m]:
-            return busca_binaria (vetor,m+1,fim,x)
-        elif x < vetor [m]:
-            return busca_binaria (vetor,inici,m-1,x)
-        else:
-            print(m)
+
+    def busca_maior():
+        return busca_binaria (vetor,m+1,fim)
+    def busca_menor():
+        return busca_binaria (vetor,inici,m-1)
+    def acerto():
+        print(f"Encontrei! O número é {vetor[respt_user]}")
+        return respt_user 
+        
+    
+    
+    m = int ((inici+fim) // 2 )#indice do meio do vetor
+    respt_user = input (f"Meu palpite e esse {m}") 
+    if   respt_user == "maior":
+        busca_maior()   
+    elif respt_user== "menor":
+        busca_menor() 
+    elif respt_user== "acertou":
+        acerto()
+        
+         
+
 
 vetor =list (range(0,101)) 
-posicao = busca_binaria(vetor,0,len(vetor)-1,x) 
+posicao = busca_binaria(vetor,0,len(vetor)-1) 
 
 
 # Exibir o resultado
-if posicao <= 0:
-    print (posicao)
 
-#contador = 0
+
+#contador = 0  print (tentativas)tentativas = tentativas+1
 #  while contador != "" :
         
 #     contador = (contador+1)
